@@ -23,23 +23,17 @@ describe "Static pages" do
   describe "About page" do
     before { visit about_path }
 
-    it "should have the content 'About Us'" do
-      page.should have_selector('h1', :text => 'About Us')
-    end
-
-    it "should have the title 'About'" do
-      page.should have_selector('title', :text => "Ruby on Rails Tutorial Sample App | About")
-    end
+    it {should have_selector('h1', :text => 'About Us') }
+    it {should have_selector('title',
+                             :text => "Ruby on Rails Tutorial Sample App | About") }
   end
 
   describe "Contact page" do
     before { visit contact_path }
-    it "should have the h1 'Contact'" do
-      page.should have_selector('h1', text: 'Contact')
-    end
+    
+    it {should have_selector('h1', text: 'Contact') }
+    it {should have_selector('title',
+                             :text => "Ruby on Rails Tutorial Sample App | Contact") }
 
-    it "should have the title 'Contact'" do
-      page.should have_selector('title', :text => "Ruby on Rails Tutorial Sample App | Contact")
-    end
   end
 end
